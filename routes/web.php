@@ -31,12 +31,28 @@ Route::get('/about', function () {
     return view('about');
 });
 
+// Show Profile Page
+Route::get('/profile', [UsersController::class, 'profileUser']);
+
+// Logout
+Route::get('/logout', [UsersController::class, 'logoutUser']);
+
 // Show Register Form
 Route::get('/register', function (PagesController $pagesController) {
     $pagename = $pagesController->getPageName();
     return view('register')->with("pagename", $pagename);
 });
 
+// Show Login Form
+Route::get('/login', function (PagesController $pagesController) {
+    $pagename = $pagesController->getPageName();
+    return view('login')->with("pagename", $pagename);
+});
+
+
 // Sumit Register Form
 Route::post('/register', [UsersController::class, 'registerUser']);
+
+// Sumit Register Form
+Route::post('/login', [UsersController::class, 'loginUser']);
 

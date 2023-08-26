@@ -36,22 +36,22 @@
                         <li class="nav-item active">
                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
-                       <li class="nav-item dropdown">
+                       {{-- <li class="nav-item dropdown">
                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                               <li><a href="about">About</a></li>
                               <li><a href="testimonial">Testimonial</a></li>
                            </ul>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                            <a class="nav-link {{request()->is('products') ? 'active' : ''}}" href="products">Products</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                            <a class="nav-link" href="blog_list">Blog</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="contact">Contact</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                            <a class="nav-link" href="#">
                               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -107,6 +107,13 @@
                                  </g>
                               </svg>
                            </a>
+                        </li>
+                        <li class="nav-item">
+                           @if (auth()->check())
+                              <a href="/profile">{{auth()->user()->name}}</a>&nbsp;<a href="/logout">(Logout)</a>
+                           @else
+                              <a href="/login">Login</a>
+                           @endif
                         </li>
                         <form class="form-inline">
                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
