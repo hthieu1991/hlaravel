@@ -1,4 +1,28 @@
-<div class="hero_area">
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Basic -->
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <!-- Site Metas -->
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="images/favicon.png" type="">
+      <title>Famms - Fashion HTML Template</title>
+      <!-- bootstrap core css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+      <!-- font awesome style -->
+      <link href="css/font-awesome.min.css" rel="stylesheet" />
+      <!-- Custom styles for this template -->
+      <link href="css/style.css" rel="stylesheet" />
+      <!-- responsive style -->
+      <link href="css/responsive.css" rel="stylesheet" />
+   </head>
+   <body class="sub_page">
+    <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
        <div class="container">
@@ -16,7 +40,7 @@
                       <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                          <li><a href="about">About</a></li>
-                         <li><a href="testimonial.html">Testimonial</a></li>
+                         <li><a href="testimonial">Testimonial</a></li>
                       </ul>
                    </li>
                    <li class="nav-item active">
