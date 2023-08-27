@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string("p_name");
             $table->string("p_desc");
             $table->string("p_img");
-            $table->float("price");
-            $table->integer("total");
-            $table->integer("status");
+            $table->float("p_price");
+            $table->integer("p_total");
+            $table->integer("p_status");
+            $table->integer("cat_id")->default(1);
             $table->timestamps();
         });
     }

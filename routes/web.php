@@ -64,8 +64,10 @@ Route::prefix('adm')->group(function(){
 
         Route::get("add_product", function(){
             return view("adm.product_add");
-        })->middleware("auth");
+        })->middleware("auth")->name("add_product");
 
         Route::post("add_product", [ProductsController::class, 'addProduct']);
+
+        Route::get("list_product", [ProductsController::class, 'listProduct'])->middleware("auth")->name("list_product");
     });
 });

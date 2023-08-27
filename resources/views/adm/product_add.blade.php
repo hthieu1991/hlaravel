@@ -15,23 +15,23 @@
                 <table>
                     <tr>
                         <td>Product Name:&nbsp;</td>
-                        <td><input type="text" name="p_name" /> </td>
+                        <td><input type="text" name="p_name" value="{{old('p_name')}}" /> </td>
                     </tr>
                     <tr>
                         <td>Product Description:&nbsp;</td>
-                        <td><textarea name="p_desc"></textarea> </td>
+                        <td><textarea name="p_desc">{{old('p_name')}}</textarea> </td>
                     </tr>
                     <tr>
                         <td>Product Image:&nbsp;</td>
-                        <td><input type="file" id="p_image"  name="p_image" /> </td>
+                        <td><input type="file" id="p_img"  name="p_img" /> </td>
                     </tr>
                     <tr>
                         <td>Product Price:&nbsp;</td>
-                        <td><input type="text" name="p_price" /> </td>
+                        <td><input type="text" name="p_price" value="{{old('p_price')}}" /> </td>
                     </tr>
                     <tr>
                         <td>Total:&nbsp;</td>
-                        <td><input type="text" name="p_total" /> </td>
+                        <td><input type="text" name="p_total" value="{{old('p_total')}}" /> </td>
                     </tr>
                     <tr>
                         <td>Product Status:&nbsp;</td>
@@ -42,14 +42,22 @@
                             </select>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td colspan="2" align="center"><input type="submit" value="Add new product" /> </td>
                     </tr>
                 </table>
             </form>
             </div>
+            <a href="{{route('list_product')}}"> List products</a>
         </div>
     </div>
+
+    @foreach ($errors->all() as $error)
+    <li style="color: red">{{ $error }}</li>
+    @endforeach
+    @if (isset($message))
+        {{$message}}
+    @endif
 
 @endsection
