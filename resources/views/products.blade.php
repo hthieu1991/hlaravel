@@ -1,5 +1,5 @@
 @extends("incs.child")
-
+@section("page_name", "Products")
 @section("content")
       <!-- product section -->
       <section class="product_section layout_padding">

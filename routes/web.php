@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -31,8 +32,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-// Show Profile Page
-Route::get('/profile', [UsersController::class, 'profileUser']);
+// Show Profile Page with check if login or not
+Route::get('/profile', [UsersController::class, 'profileUser'])->middleware("auth");
 
 // Logout
 Route::get('/logout', [UsersController::class, 'logoutUser']);
@@ -47,7 +48,7 @@ Route::get('/register', function (PagesController $pagesController) {
 Route::get('/login', function (PagesController $pagesController) {
     $pagename = $pagesController->getPageName();
     return view('login')->with("pagename", $pagename);
-});
+})->name("login");
 
 
 // Sumit Register Form
@@ -56,3 +57,15 @@ Route::post('/register', [UsersController::class, 'registerUser']);
 // Sumit Register Form
 Route::post('/login', [UsersController::class, 'loginUser']);
 
+// Group Admin pages
+Route::prefix('adm')->group(function(){
+
+    Route::prefix('products')->group(function(){
+
+        Route::get("add_product", function(){
+            return view("adm.product_add");
+        })->middleware("auth");
+
+        Route::post("add_product", [ProductsController::class, 'addProduct']);
+    });
+});

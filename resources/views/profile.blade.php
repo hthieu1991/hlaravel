@@ -1,5 +1,7 @@
 @extends("incs.child")
 
+@section("page_name", "Profile")
+
 @section("content")
 <section class="why_section layout_padding">
     <div class="container">

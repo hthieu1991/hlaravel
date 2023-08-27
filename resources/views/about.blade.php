@@ -1,5 +1,6 @@
 
 @extends("incs.child")
+@section("page_name", "About us")
 @section("content")
       <!-- why section -->
       <section class="why_section layout_padding">

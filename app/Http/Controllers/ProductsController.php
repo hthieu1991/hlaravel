@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    //
+    function addProduct(){
+        dd(request()->all());
+    }
 }
