@@ -1,4 +1,4 @@
 </section>
-<script src="{{URL("adm/script.js")}}"></script>
+<script src="{{URL("adms/script.js")}}"></script>
 </body>
 </html>

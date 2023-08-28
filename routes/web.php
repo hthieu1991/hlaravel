@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AdminPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,7 @@ Route::get('/', function () {
 });
 
 // Show Products Page
-Route::get('/products', function () {
-    return view('products');
-});
+Route::get('/products', [ProductsController::class, 'index']);
 
 // Show About Page
 Route::get('/about', function () {
@@ -60,14 +59,19 @@ Route::post('/login', [UsersController::class, 'loginUser']);
 // Group Admin pages
 Route::prefix('adm')->group(function(){
 
+    Route::get('/', [AdminPageController::class, 'index'])->middleware("auth")->name("admin_home");
+
+    //Products Group
     Route::prefix('products')->group(function(){
 
         Route::get("add_product", function(){
             return view("adm.product_add");
         })->middleware("auth")->name("add_product");
 
-        Route::post("add_product", [ProductsController::class, 'addProduct']);
+        Route::post("add_product", [ProductsController::class, 'addProduct'])->middleware("auth");
 
         Route::get("list_product", [ProductsController::class, 'listProduct'])->middleware("auth")->name("list_product");
+
+        Route::post("delete_product", [ProductsController::class, 'deleteProduct'])->name('delete_product');
     });
 });

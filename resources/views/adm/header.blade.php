@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="{{URL("adm/style.css")}}">
+    <link rel="stylesheet" href="{{URL("adms/style.css")}}">
 
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
     <title>Admin Dashboard Panel</title>
 </head>
@@ -18,7 +19,7 @@
     <nav>
         <div class="logo-name">
             <div class="logo-image">
-                <img src="images/logo.png" alt="">
+                <img src="adms/images/logo.png" alt="">
             </div>
 
             <span class="logo_name">CodingLab</span>
@@ -26,7 +27,7 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="{{route('admin_home')}}">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
@@ -81,5 +82,5 @@
                 <input type="text" placeholder="Search here...">
             </div>
 
-            <img src="images/profile.jpg" alt="">
+            <img src="adms/images/profile.jpg" alt="">
         </div>

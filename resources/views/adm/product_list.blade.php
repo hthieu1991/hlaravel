@@ -10,21 +10,21 @@
             </div>
 
             <div class="boxes">
-                <form method="POST" action="add_product" enctype="multipart/form-data">
-                    @csrf
                 <table>
                     <tr>
-                        <td>Product Name:&nbsp;</td>
+                        <td>Product Name</td>
 
-                        <td>Product Description:&nbsp;</td>
+                        <td>Product Description</td>
 
-                        <td>Product Image:&nbsp;</td>
+                        <td>Product Image</td>
 
-                        <td>Product Price:&nbsp;</td>
+                        <td>Product Price</td>
 
-                        <td>Total:&nbsp;</td>
+                        <td>Total</td>
 
-                        <td>Product Status:&nbsp;</td>
+                        <td>Product Status</td>
+
+                        <td>Action</td>
 
                     </tr>
                     @if (isset($product_list))
@@ -36,13 +36,13 @@
                             <td>{{$product->p_price;}}</td>
                             <td>{{$product->p_total;}}</td>
                             <td>{{$product->p_status;}}</td>
+                            <td><input type="button" value="Delete Ajax" onclick="deleteAjax('{{$product->id}}');" /></td>
                         </tr>
                         @endforeach
 
                     @endif
 
                 </table>
-            </form>
             </div>
             <a href="{{route('add_product')}}"> Add new product</a>
         </div>
@@ -54,5 +54,27 @@
     @if (isset($message))
         {{$message}}
     @endif
+
+    <script>
+        function deleteAjax(id){
+            if(confirm("Are you sure delete this product?")) {
+                $.ajax({
+                    url: '{{route('delete_product')}}',
+                    type: 'POST',
+                    // dataType: 'json',
+                    data: {
+                        p_id: id,
+                        _token : '{{csrf_token()}}'
+                    },
+                    success : function(data){
+                        if(data = 1) {
+                            location.reload();
+                        }
+                    }
+
+                });
+            }
+        }
+    </script>
 
 @endsection
