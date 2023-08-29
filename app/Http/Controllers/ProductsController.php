@@ -9,15 +9,17 @@ use App\Models\Products;
 
 class ProductsController extends Controller
 {
+    function __construct(){
+        // make sympol links
+        // Artisan::call('storage:link'); 
+    }
     // Default products front page
     function index(){
         $all_product = Products::simplePaginate(8);
         return view('products', compact('all_product'));
     }
 
-    function listProduct(){
-        // make sympol links
-        // Artisan::call('storage:link'); 
+    function listProduct(Request $request){
         $productModel = new Products;
         $product_list = $productModel->all();//get() still same
         return view('adm.product_list', compact('product_list'));
@@ -59,8 +61,16 @@ class ProductsController extends Controller
             $productModel->save();
         }
 
+
+        
         $message = "Successful";
-        return view('adm.product_add', compact('message'));
+        // if(!$request->old()) {
+            return view('adm.product_add', compact('message'));
+        // } else {
+        //     $old = $request->old();
+        //     return view('adm.product_add', compact('message'));
+        // }
+        
     }
 
     function updateProduct(Request $request){

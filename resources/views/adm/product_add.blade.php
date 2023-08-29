@@ -1,7 +1,6 @@
 @extends("adm.app")
 
 @section("content")
-
     <div class="dash-content">
         <div class="overview">
             <div class="title">
@@ -15,11 +14,11 @@
                 <table>
                     <tr>
                         <td>Product Name:&nbsp;</td>
-                        <td><input type="text" name="p_name" value="{{old('p_name')}}" /> </td>
+                        <td><input type="text" name="p_name" value="" /> </td>
                     </tr>
                     <tr>
                         <td>Product Description:&nbsp;</td>
-                        <td><textarea name="p_desc">{{old('p_name')}}</textarea> </td>
+                        <td><textarea name="p_desc"></textarea> </td>
                     </tr>
                     <tr>
                         <td>Product Image:&nbsp;</td>
@@ -27,11 +26,11 @@
                     </tr>
                     <tr>
                         <td>Product Price:&nbsp;</td>
-                        <td><input type="text" name="p_price" value="{{old('p_price')}}" /> </td>
+                        <td><input type="text" name="p_price" value="" /> </td>
                     </tr>
                     <tr>
                         <td>Total:&nbsp;</td>
-                        <td><input type="text" name="p_total" value="{{old('p_total')}}" /> </td>
+                        <td><input type="text" name="p_total" value="" /> </td>
                     </tr>
                     <tr>
                         <td>Product Status:&nbsp;</td>
