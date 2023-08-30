@@ -14,7 +14,7 @@
                 <table>
                     <tr>
                         <td>Product Name:&nbsp;</td>
-                        <td><input type="text" name="p_name" value="" /> </td>
+                        <td><input type="text" name="p_name" value="{{ old('p_name', 'Product name sample') }}" /> </td>
                     </tr>
                     <tr>
                         <td>Product Description:&nbsp;</td>

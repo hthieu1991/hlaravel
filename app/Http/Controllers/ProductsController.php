@@ -26,7 +26,7 @@ class ProductsController extends Controller
     }
 
     function addProduct(Request $request){
-
+        $request->flash();
         $rules = [
             'p_name' => 'required|string|min:5|max:100',
             'p_desc' => 'required|string|min:5|max:200',
@@ -47,6 +47,8 @@ class ProductsController extends Controller
         $p_img = $request->file('p_img');
         $img_name = $p_img->getClientOriginalName();
         $p_img->storeAs('public/uploads', $img_name);//remember save image into storage/public/uploads
+
+        
 
         // make insert 10 products for test
         
