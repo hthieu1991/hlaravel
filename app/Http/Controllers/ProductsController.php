@@ -6,6 +6,7 @@ use Artisan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Products;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -95,5 +96,40 @@ class ProductsController extends Controller
         // DB::table("products")->delete($p_id);
 
         // $this->listProduct();
+    }
+
+    function add_product_to_cart(Request $request){
+        // session()->forget('cart');
+        $product_id = $request->p_id;
+        $price = 0;
+        $total = 0;
+
+        
+
+        $cart = session()->get('cart', []);
+        if(isset($cart[$product_id])) {
+            $cart[$product_id]['p_total'] += $cart[$product_id]['p_total'];
+            $cart[$product_id]['p_price'] += $cart[$product_id]['p_price'];
+        } else {
+            $data = DB::table('products')
+            ->select('id', 'p_name', 'p_price', 'p_desc', 'p_status', 'p_total')
+            ->where('id', '=', $product_id)
+            ->get();
+
+            foreach($data as $product) {
+                $cart[$product_id] = [
+                    'p_name' => $product->p_name,
+                    'p_price' => $product->p_price,
+                    'p_desc' => $product->p_desc,
+                    'p_status' => $product->p_status,
+                    'p_total' => $product->p_total
+                ];
+
+            }
+        }
+
+        session()->put('cart', $cart);
+        print_r(session()->get('cart'));
+        // return 'Add to cart success';
     }
 }

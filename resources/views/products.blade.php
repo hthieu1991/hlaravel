@@ -15,10 +15,10 @@
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="" class="option1">
+                           <a href="#" id="{{$product->id}}" onclick="add_to_cart(this.id)" class="option1">
                            Add to Card
                            </a>
-                           <a href="" class="option2">
+                           <a href="#" class="option2">
                            Buy Now
                            </a>
                         </div>
@@ -48,4 +48,8 @@
          </div>
       </section>
       <!-- end product section -->
+      <script>
+         var product_ajax_path = '{{route('products_cart')}}';
+         var csrf_token = '{{csrf_token()}}';
+      </script>
 @endsection
