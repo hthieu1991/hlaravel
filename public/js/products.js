@@ -5,7 +5,7 @@ function add_to_cart(product_id){
         type: 'POST',
         data : {'p_id': product_id, _token: csrf_token},
         success: function(response){
-            console.log(response);
+            alert(response);
         }
 
     });

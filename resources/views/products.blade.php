@@ -15,7 +15,7 @@
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="#" id="{{$product->id}}" onclick="add_to_cart(this.id)" class="option1">
+                           <a href="#" id="{{$product->id}}" onclick="add_to_cart(this.id)" class="option1" onclick="return false;">
                            Add to Card
                            </a>
                            <a href="#" class="option2">

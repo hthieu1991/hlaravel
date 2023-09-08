@@ -26,6 +26,8 @@ Route::get('/', function () {
 // Show Products Page
 Route::get('/products', [ProductsController::class, 'index']);
 Route::post('/products', [ProductsController::class, 'add_product_to_cart'])->name('products_cart');
+Route::get('/cart', [ProductsController::class, 'show_cart'])->name('cart');
+
 
 // Show About Page
 Route::get('/about', function () {

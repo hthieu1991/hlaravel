@@ -12,7 +12,7 @@ class ProductsController extends Controller
 {
     function __construct(){
         // make sympol links
-        // Artisan::call('storage:link'); 
+        // Artisan::call('storage:link');
     }
     // Default products front page
     function index(){
@@ -49,10 +49,10 @@ class ProductsController extends Controller
         $img_name = $p_img->getClientOriginalName();
         $p_img->storeAs('public/uploads', $img_name);//remember save image into storage/public/uploads
 
-        
+
 
         // make insert 10 products for test
-        
+
         for($i = 1; $i<=10; $i++) {
             $productModel = new Products;
             $productModel->p_name = $p_name."-".$i;
@@ -65,7 +65,7 @@ class ProductsController extends Controller
         }
 
 
-        
+
         $message = "Successful";
         // if(!$request->old()) {
             return view('adm.product_add', compact('message'));
@@ -73,7 +73,7 @@ class ProductsController extends Controller
         //     $old = $request->old();
         //     return view('adm.product_add', compact('message'));
         // }
-        
+
     }
 
     function updateProduct(Request $request){
@@ -104,7 +104,7 @@ class ProductsController extends Controller
         $price = 0;
         $total = 0;
 
-        
+
 
         $cart = session()->get('cart', []);
         if(isset($cart[$product_id])) {
@@ -129,7 +129,11 @@ class ProductsController extends Controller
         }
 
         session()->put('cart', $cart);
-        print_r(session()->get('cart'));
-        // return 'Add to cart success';
+        // print_r(session()->get('cart'));
+        return 'Add to cart success';
+    }
+
+    function show_cart(){
+        return view('cart');
     }
 }
