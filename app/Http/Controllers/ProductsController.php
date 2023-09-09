@@ -112,7 +112,7 @@ class ProductsController extends Controller
             $cart[$product_id]['p_price'] += $cart[$product_id]['p_price'];
         } else {
             $data = DB::table('products')
-            ->select('id', 'p_name', 'p_price', 'p_desc', 'p_status', 'p_total')
+            ->select('id', 'p_name', 'p_price', 'p_desc', 'p_status', 'p_total', 'p_img')
             ->where('id', '=', $product_id)
             ->get();
 
@@ -122,7 +122,8 @@ class ProductsController extends Controller
                     'p_price' => $product->p_price,
                     'p_desc' => $product->p_desc,
                     'p_status' => $product->p_status,
-                    'p_total' => $product->p_total
+                    'p_total' => $product->p_total,
+                    'p_img' => $product->p_img
                 ];
 
             }

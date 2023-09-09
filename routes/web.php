@@ -6,6 +6,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,10 @@ use App\Http\Controllers\AdminPageController;
 */
 
 // Show Index Page
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 // Show Products Page
-Route::get('/products', [ProductsController::class, 'index']);
+Route::get('/products', [ProductsController::class, 'index'])->name("products_page");
 Route::post('/products', [ProductsController::class, 'add_product_to_cart'])->name('products_cart');
 Route::get('/cart', [ProductsController::class, 'show_cart'])->name('cart');
 Route::post('/cart', [ProductsController::class, 'update_cart'])->name('update_cart');

@@ -10,7 +10,7 @@
             </div>
 
             <div class="boxes">
-                <table>
+                <table style="width: 100%;">
                     <tr>
                         <td>Product Name</td>
 
@@ -24,7 +24,7 @@
 
                         <td>Product Status</td>
 
-                        <td>Action</td>
+                        <td>Check all&nbsp;<input type="checkbox" id="check_all" value="" /></td>
 
                     </tr>
                     @if (isset($product_list))
@@ -36,10 +36,17 @@
                             <td>{{$product->p_price;}}</td>
                             <td>{{$product->p_total;}}</td>
                             <td>{{$product->p_status;}}</td>
-                            <td><input type="button" value="Delete Ajax" onclick="deleteAjax('{{$product->id}}');" /></td>
+                            <td>
+                                <input type="button" value="Delete Ajax" onclick="deleteAjax('{{$product->id}}');" />
+                                <input type="checkbox" class="delete_product" name="delete_product[]" value="{{$product->id}}" />
+                            </td>
                         </tr>
                         @endforeach
-
+                        <tr>
+                            <td colspan="7" align="center">
+                                <input type="button" value="Delete All" onclick="deleteAjaxAll();" />
+                            </td>
+                        </tr>
                     @endif
 
                 </table>
@@ -56,6 +63,10 @@
     @endif
 
     <script>
+        $("#check_all").click(function(){
+            $('input:checkbox').not(this).prop('checked', this.checked);
+        });
+
         function deleteAjax(id){
             if(confirm("Are you sure delete this product?")) {
                 $.ajax({
@@ -73,6 +84,33 @@
                     }
 
                 });
+            }
+        }
+
+        function deleteAjaxAll(){
+            if(confirm("Are you sure delete this product?")) {
+                var ids = '';
+                    $('.delete_product:checked').each(function(i, e) {
+                        ids += $(this).val()+',';
+                    });
+                // console.log($('input[name="delete_product[]:checked"]'));
+                // var data_list = $('input[name="delete_product[]:checked"]').serialize();
+                console.log(ids);
+                // $.ajax({
+                //     url: '{{route('delete_product')}}',
+                //     type: 'POST',
+                //     // dataType: 'json',
+                //     data: {
+                //         p_id: id,
+                //         _token : '{{csrf_token()}}'
+                //     },
+                //     success : function(data){
+                //         if(data = 1) {
+                //             location.reload();
+                //         }
+                //     }
+
+                // });
             }
         }
     </script>
