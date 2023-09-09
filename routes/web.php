@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::get('/products', [ProductsController::class, 'index']);
 Route::post('/products', [ProductsController::class, 'add_product_to_cart'])->name('products_cart');
 Route::get('/cart', [ProductsController::class, 'show_cart'])->name('cart');
+Route::post('/cart', [ProductsController::class, 'update_cart'])->name('update_cart');
 
 
 // Show About Page

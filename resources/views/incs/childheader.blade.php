@@ -20,7 +20,8 @@
       <link href="css/style.css" rel="stylesheet" />
       <!-- responsive style -->
       <link href="css/responsive.css" rel="stylesheet" />
-
+         <!-- jQery -->
+ <script src="js/jquery-3.4.1.min.js"></script>
    </head>
    <body class="sub_page">
     <div class="hero_area">

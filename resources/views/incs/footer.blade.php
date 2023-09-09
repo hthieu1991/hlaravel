@@ -2,8 +2,6 @@
 <div class="cpy_">
     <p>© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a></p>
  </div>
- <!-- jQery -->
- <script src="js/jquery-3.4.1.min.js"></script>
  <!-- popper js -->
  <script src="js/popper.min.js"></script>
  <!-- bootstrap js -->

@@ -133,6 +133,16 @@ class ProductsController extends Controller
         return 'Add to cart success';
     }
 
+    function update_cart(){
+        $id = request()->id;
+        $p_total = request()->p_total;
+
+        $cart = session()->get('cart');
+        $cart[$id]['p_total'] = $p_total;
+
+        session()->put('cart', $cart);
+    }
+
     function show_cart(){
         return view('cart');
     }

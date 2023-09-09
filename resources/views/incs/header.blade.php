@@ -20,6 +20,8 @@
       <link href="css/style.css" rel="stylesheet" />
       <!-- responsive style -->
       <link href="css/responsive.css" rel="stylesheet" />
+       <!-- jQery -->
+      <script src="js/jquery-3.4.1.min.js"></script>
    </head>
    <body>
       <div class="hero_area">
@@ -53,7 +55,7 @@
                            <a class="nav-link" href="contact">Contact</a>
                         </li> --}}
                         <li class="nav-item">
-                           <a class="nav-link" href="#">
+                           <a class="nav-link" href="{{route("cart")}}">
                               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                  <g>
                                     <g>
