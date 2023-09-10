@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{$product->p_name;}}</td>
                             <td>{{$product->p_desc;}}</td>
-                            <td><img width="50px" src="{{URL("storage/uploads/".$product->p_img);}}" /></td>
+                            <td><img width="50px" src="{{URL("storage/uploads/".$product->p_img)}}" /></td>
                             <td>{{$product->p_price;}}</td>
                             <td>{{$product->p_total;}}</td>
                             <td>{{$product->p_status;}}</td>
@@ -90,27 +90,27 @@
         function deleteAjaxAll(){
             if(confirm("Are you sure delete this product?")) {
                 var ids = '';
-                    $('.delete_product:checked').each(function(i, e) {
-                        ids += $(this).val()+',';
-                    });
-                // console.log($('input[name="delete_product[]:checked"]'));
-                // var data_list = $('input[name="delete_product[]:checked"]').serialize();
-                console.log(ids);
-                // $.ajax({
-                //     url: '{{route('delete_product')}}',
-                //     type: 'POST',
-                //     // dataType: 'json',
-                //     data: {
-                //         p_id: id,
-                //         _token : '{{csrf_token()}}'
-                //     },
-                //     success : function(data){
-                //         if(data = 1) {
-                //             location.reload();
-                //         }
-                //     }
 
-                // });
+                $('.delete_product:checked').each(function(i, e) {
+                    ids += $(this).val()+',';
+                });
+
+                $.ajax({
+                    url: '{{route('delete_products')}}',
+                    type: 'POST',
+                    // dataType: 'json',
+                    data: {
+                        _token : '{{csrf_token()}}',
+                        list_product: ids.slice(0,-1)
+                    },
+                    success : function(data){
+                        console.log(data);
+                        if(data = 1) {
+                            location.reload();
+                        }
+                    }
+
+                });
             }
         }
     </script>

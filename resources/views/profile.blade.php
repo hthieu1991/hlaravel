@@ -14,6 +14,9 @@
     <tr>
         <td>Email:&nbsp;</td><td>{{$userdata->email}}</td>
     </tr>
+    <tr>
+        <td><a href="{{route("admin_home")}}">Go to admin page</a></td>
+    </tr>
     
 </table>
 

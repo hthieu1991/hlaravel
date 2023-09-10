@@ -1,6 +1,6 @@
 <!-- footer end -->
 <div class="cpy_">
-    <p>© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a></p>
+    <p>© {{date('Y')}} All Rights Reserved By <a href="">HieuShop</a></p>
  </div>
  <!-- popper js -->
  <script src="js/popper.min.js"></script>

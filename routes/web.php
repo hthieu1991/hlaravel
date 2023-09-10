@@ -20,7 +20,7 @@ use App\Http\Controllers\HomeController;
 */
 
 // Show Index Page
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home_page');
 
 // Show Products Page
 Route::get('/products', [ProductsController::class, 'index'])->name("products_page");
@@ -35,7 +35,7 @@ Route::get('/about', function () {
 });
 
 // Show Profile Page with check if login or not
-Route::get('/profile', [UsersController::class, 'profileUser'])->middleware("auth");
+Route::get('/profile', [UsersController::class, 'profileUser'])->middleware("auth")->name('profile_page');
 
 // Logout
 Route::get('/logout', [UsersController::class, 'logoutUser']);
@@ -76,5 +76,7 @@ Route::prefix('adm')->group(function(){
         Route::get("list_product", [ProductsController::class, 'listProduct'])->middleware("auth")->name("list_product");
 
         Route::post("delete_product", [ProductsController::class, 'deleteProduct'])->name('delete_product');
+
+        Route::post("delete_products", [ProductsController::class, 'delete_products'])->name('delete_products');
     });
 });

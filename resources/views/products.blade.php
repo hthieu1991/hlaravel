@@ -24,7 +24,7 @@
                         </div>
                      </div>
                      <div class="img-box">
-                        <img src="images/p1.png" alt="">
+                        <img src="{{URL("storage/uploads/".$product->p_img)}}" alt="">
                      </div>
                      <div class="detail-box">
                         <h5>

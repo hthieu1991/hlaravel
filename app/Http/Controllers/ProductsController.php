@@ -98,6 +98,13 @@ class ProductsController extends Controller
         // $this->listProduct();
     }
 
+    function delete_products(Request $request){
+        $list_products = $request->list_product;
+        $array_products = explode(",", $list_products);
+        DB::table("products")->whereIn("id", $array_products)->delete();
+        return 1;
+    }
+
     function add_product_to_cart(Request $request){
         // session()->forget('cart');
         $product_id = $request->p_id;

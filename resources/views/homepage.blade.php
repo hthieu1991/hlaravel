@@ -58,7 +58,7 @@
                         <div class="heading_container heading_center">
                            <h3>Subscribe To Get Discount Offers</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                        <p>Enter your email address to subscribe to our latest promotional news</p>
                         <form action="">
                            <input type="email" placeholder="Enter your email">
                            <button>
@@ -87,19 +87,19 @@
                         <div class="img_container">
                            <div class="img-box">
                               <div class="img_box-inner">
-                                 <img src="images/client.jpg" alt="">
+                                 <img src="{{URL("storage/uploads/taylor-swiff.jpg")}}" alt="">
                               </div>
                            </div>
                         </div>
                         <div class="detail-box">
                            <h5>
-                              Anna Trevor
+                              Taylor Swift
                            </h5>
                            <h6>
                               Customer
                            </h6>
                            <p>
-                              Dignissimos reprehenderit repellendus nobis error quibusdam? Atque animi sint unde quis reprehenderit, et, perspiciatis, debitis totam est deserunt eius officiis ipsum ducimus ad labore modi voluptatibus accusantium sapiente nam! Quaerat.
+                              At Hieushop, we are very satisfied with the product quality as well as the service quality of the Hieushop team
                            </p>
                         </div>
                      </div>
@@ -109,19 +109,19 @@
                         <div class="img_container">
                            <div class="img-box">
                               <div class="img_box-inner">
-                                 <img src="images/client.jpg" alt="">
+                                 <img src="{{URL("storage/uploads/john-cena.jpg")}}" alt="">
                               </div>
                            </div>
                         </div>
                         <div class="detail-box">
                            <h5>
-                              Anna Trevor
+                              John Cena
                            </h5>
                            <h6>
                               Customer
                            </h6>
                            <p>
-                              Dignissimos reprehenderit repellendus nobis error quibusdam? Atque animi sint unde quis reprehenderit, et, perspiciatis, debitis totam est deserunt eius officiis ipsum ducimus ad labore modi voluptatibus accusantium sapiente nam! Quaerat.
+                              We recommend that you use products at Hieushop because of the price and quality of service here.
                            </p>
                         </div>
                      </div>
@@ -131,19 +131,19 @@
                         <div class="img_container">
                            <div class="img-box">
                               <div class="img_box-inner">
-                                 <img src="images/client.jpg" alt="">
+                                 <img src="{{URL("storage/uploads/elon-musk.jpg")}}" alt="">
                               </div>
                            </div>
                         </div>
                         <div class="detail-box">
                            <h5>
-                              Anna Trevor
+                              Elon Musk
                            </h5>
                            <h6>
                               Customer
                            </h6>
                            <p>
-                              Dignissimos reprehenderit repellendus nobis error quibusdam? Atque animi sint unde quis reprehenderit, et, perspiciatis, debitis totam est deserunt eius officiis ipsum ducimus ad labore modi voluptatibus accusantium sapiente nam! Quaerat.
+                              Who controls Hieushop, controls the universe.
                            </p>
                         </div>
                      </div>
@@ -173,9 +173,9 @@
                         <a href="#"><img width="210" src="images/logo.png" alt="#" /></a>
                       </div>
                       <div class="information_f">
-                        <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                        <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                        <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
+                        <p><strong>ADDRESS:</strong> Ho Chi Minh City, Vietnam</p>
+                        <p><strong>TELEPHONE:</strong> 0368 911 560</p>
+                        <p><strong>EMAIL:</strong> bulldognotes@gmail.com</p>
                       </div>
                    </div>
                </div>
@@ -187,12 +187,8 @@
                      <div class="widget_menu">
                         <h3>Menu</h3>
                         <ul>
-                           <li><a href="#">Home</a></li>
-                           <li><a href="#">About</a></li>
-                           <li><a href="#">Services</a></li>
-                           <li><a href="#">Testimonial</a></li>
-                           <li><a href="#">Blog</a></li>
-                           <li><a href="#">Contact</a></li>
+                           <li><a href="{{route('home_page')}}">Home</a></li>
+                           <li><a href="{{route('products_page')}}">Products</a></li>
                         </ul>
                      </div>
                   </div>
@@ -200,9 +196,13 @@
                      <div class="widget_menu">
                         <h3>Account</h3>
                         <ul>
-                           <li><a href="#">Account</a></li>
+                           <li><a href="{{route('profile_page')}}">Account</a></li>
                            <li><a href="#">Checkout</a></li>
-                           <li><a href="#">Login</a></li>
+                           @if (auth()->check())
+                              <li><a href="/profile">{{auth()->user()->name}}</a>&nbsp;<a href="/logout">(Logout)</a></li>
+                           @else
+                              <li><a href="{{route('login')}}">Login</a></li>
+                           @endif
                            <li><a href="#">Register</a></li>
                            <li><a href="#">Shopping</a></li>
                            <li><a href="#">Widget</a></li>
@@ -215,7 +215,7 @@
                      <div class="widget_menu">
                         <h3>Newsletter</h3>
                         <div class="information_f">
-                          <p>Subscribe by our newsletter and get update protidin.</p>
+                          <p>Enter your email address to subscribe to our latest promotional news</p>
                         </div>
                         <div class="form_sub">
                            <form>
