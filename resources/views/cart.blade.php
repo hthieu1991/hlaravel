@@ -44,7 +44,6 @@
     </tr>
     <tr>
         <td colspan="6" align="center">
-            <input type="button" value="Update Cart" />
             <input type="button" value="Check Out" />
         </td>
     </tr>
@@ -72,7 +71,7 @@
             method: 'POST',
             data: { id: id, p_total: qty, _token: csrf },
             success: function(reponse){
-             alert(reponse);
+              location.reload();
             }
         });
 
