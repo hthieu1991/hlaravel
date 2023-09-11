@@ -8,5 +8,7 @@
  <script src="js/bootstrap.js"></script>
  <!-- custom js -->
  <script src="js/custom.js"></script>
+
+ <script src="js/products.js"></script>
 </body>
 </html>

@@ -20,8 +20,12 @@
       <link href="css/style.css" rel="stylesheet" />
       <!-- responsive style -->
       <link href="css/responsive.css" rel="stylesheet" />
+      <link href="css/jquery-ui.min.css" rel="stylesheet" />
+      <link href="css/jquery-ui.structure.min.css" rel="stylesheet" />
+      <link href="css/jquery-ui.theme.min.css" rel="stylesheet" />
          <!-- jQery -->
- <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="js/jquery-ui.min.js"></script>
    </head>
    <body class="sub_page">
     <div class="hero_area">

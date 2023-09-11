@@ -234,4 +234,15 @@
             </div>
          </div>
       </footer>
+
+      <div id="dialog-confirm" title="Add to Cart success!" style="display:none">
+         <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+            You added product to cart, please choose next action...</p>
+       </div>
+
+      <script>
+         var product_ajax_path = '{{route('products_cart')}}';
+         var csrf_token = '{{csrf_token()}}';
+         var cart_path = '{{route('cart')}}';
+      </script>
 @endsection
